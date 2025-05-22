@@ -22,7 +22,7 @@
   };
 
   networking = {
-    hostName = "jorgearaya.dev";
+    hostName = "jorgearayadev";
     firewall = {
       enable = true;
       allowedTCPPorts = [
