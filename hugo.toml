@@ -1,4 +1,80 @@
 baseURL = 'https://jorgearaya.dev/'
-languageCode = 'en-us'
+languageCode = 'en'
 title = 'Jorge Araya | Backend Developer & Consultant'
 theme = 'coder'
+defaultcontentlanguage = "en"
+
+[pagination]
+pagerSize = 20
+
+[markup.highlight]
+style = "paraiso-dark"
+
+[params]
+  author = "Jorge Araya"
+  info = " I build scalable backend systems and APIs with Go & Python"
+  description = "Jorge Araya's personal website"
+  keywords = "blog,developer,personal,consulting"
+  avatarurl = "images/me.jpg"
+
+  faviconSVG = "images/favicon.svg"
+  favicon_32 = "/img/favicon-32x32.png"
+  favicon_16 = "/img/favicon-16x16.png"
+
+  since = 2019
+
+  enableTwemoji = true
+
+  colorScheme = "auto"
+  hidecolorschemetoggle = false
+
+  # customCSS = ["css/custom.css"]
+  # customSCSS = ["scss/custom.scss"]
+  # customJS = ["js/custom.js"]
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+  author = "authors"
+
+# Social links
+[[params.social]]
+  name = "Github"
+  icon = "fa-brands fa-github fa-2x"
+  weight = 1
+  url = "https://github.com/shackra/"
+[[params.social]]
+  name = "Gitlab"
+  icon = "fa-brands fa-gitlab fa-2x"
+  weight = 2
+  url = "https://gitlab.com/shackra/"
+[[params.social]]
+  name = "𝕏"
+  icon = "fa-brands fa-x-twitter fa-2x"
+  weight = 3
+  url = "https://x.com/elzorrorebelde/"
+[[params.social]]
+  name = "Stack Overflow"
+  icon = "fa-brands fa-stack-overflow fa-2x"
+  weight = 4
+  url = "https://stackoverflow.com/users/2020214/shackra"
+[[params.social]]
+  name = "Schedule a 30 minutes appointment"
+  icon = "fa-solid fa-phone fa-2x"
+  weight = 5
+  url = "https://cal.com/jorgean/30min"
+
+# Menu links
+# [[menu.main]]
+#   name = "Résumé"
+#   weight = 1
+#   url = "resume/"
+# [[menu.main]]
+#   name = "Blog"
+#   weight = 2
+#   url  = "blog/"
+# [[menu.main]]
+#   name = "Portfolio"
+#   weight = 3
+#   url = "portfolio/"
