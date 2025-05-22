@@ -1,0 +1,4 @@
+baseURL = 'https://jorgearaya.dev/'
+languageCode = 'en-us'
+title = 'Jorge Araya | Backend Developer & Consultant'
+theme = 'coder'
