@@ -1,0 +1,31 @@
+name: Deploy site
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@v5.1.0
+        with:
+            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            ARGS: "-azv --delete"
+            SOURCE: "public/"
+            REMOTE_HOST: jorgearaya.dev
+            REMOTE_USER: ${{ secrets.REMOTE_USER }}
+            TARGET: "/var/www/jorgearaya.dev"
+            EXCLUDE: "/dist/, /node_modules/"
