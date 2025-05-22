@@ -6,6 +6,7 @@
   # Flake inputs
   inputs = {
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+    deploy-rs.url = "github:serokell/deploy-rs";
     flake-schemas.url = "https://flakehub.com/f/DeterminateSystems/flake-schemas/*";
 
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/*";
@@ -18,6 +19,7 @@
       flake-schemas,
       nixpkgs,
       pre-commit-hooks,
+      deploy-rs,
     }:
     let
       # Helpers for producing system-specific outputs
@@ -30,6 +32,8 @@
             pkgs = import nixpkgs { inherit system; };
           }
         );
+
+      host = "jorgearaya.dev";
     in
     {
       # Schemas tell Nix about the structure of your flake's outputs
@@ -86,5 +90,21 @@
           };
         }
       );
+
+      nixosConfigurations.site = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./vps.nix
+        ];
+      };
+
+      deploy.nodes.site = {
+        hostname = host;
+        profiles.system = {
+          sshUser = "root";
+          user = "root";
+          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.site;
+        };
+      };
     };
 }
