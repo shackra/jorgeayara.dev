@@ -59,6 +59,10 @@
     LC_TIME = "es_CR.UTF-8";
   };
 
+  systemd.tmpfiles.rules = [
+    "d /var/www/jorgearaya.dev 0755 nginx nginx -"
+  ];
+
   security.acme = {
     acceptTerms = true;
     defaults.email = "jorge+dns@esavara.cr";
