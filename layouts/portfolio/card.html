@@ -1,0 +1,9 @@
+<a href="{{ .Params.externalLink | default .RelPermalink }}">
+  <div class="card">
+    <img src="{{ .Params.cover | default "https://placehold.co/1280x760?text=No+Image" }}">
+    <div class="card content">
+      <h2 class="card title">{{.Title}}</h2>
+      <section class="card description">{{.Description}}</section>
+    </div>
+  </div>
+</a>
