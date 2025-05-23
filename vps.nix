@@ -51,10 +51,6 @@
   security.acme = {
     acceptTerms = true;
     defaults.email = "jorge+dns@esavara.cr";
-
-    certs."jorgearaya.dev" = {
-      webroot = "/var/lib/acme/acme-challenges";
-    };
   };
 
   services.nginx = {
