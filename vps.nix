@@ -63,10 +63,6 @@
       enableACME = true;
       forceSSL = true;
       root = "/var/www/jorgearaya.dev";
-
-      locations."/.well-known/acme-challenge/" = {
-        root = "/var/lib/acme";
-      };
     };
   };
 
