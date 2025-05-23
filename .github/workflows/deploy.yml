@@ -23,7 +23,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v5.1.0
         with:
             SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-            ARGS: "-azv --delete"
+            ARGS: "-azv --delete --chown=nginx:nginx"
             SOURCE: "public/"
             REMOTE_HOST: jorgearaya.dev
             REMOTE_USER: ${{ secrets.REMOTE_USER }}
