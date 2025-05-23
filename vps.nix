@@ -73,7 +73,6 @@
     virtualHosts."jorgearaya.dev" = {
       enableACME = true;
       forceSSL = true;
-      root = "/var/www/jorgearaya.dev";
     };
   };
 
