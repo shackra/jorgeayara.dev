@@ -31,7 +31,9 @@
 
       <div class="post-content">
         {{ if .Params.Cover }}
+	{{/* djlint:off H006 */}}
         <img src="{{ .Params.Cover | relURL }}" alt="Featured image"/>
+	{{/* djlint:on */}}
         {{ end }}
         {{ .Content }}
       </div>
@@ -52,7 +54,7 @@
 	  <li>Topics related to this project: <ul>{{- range .Params.Topics -}}<li>{{.}}</li>{{- end -}}</ul></li>
 	  {{end}}
 	</ul>
-	<h3>Schedule a Call</h3>
+	<h3><i class="fa-solid fa-phone"></i> Schedule a Call</h3>
 	<p>Need a dev? Let’s see if we click. Grab a slot.</p>
 	<div class="calendar">
 	  <!-- Cal inline embed code begins -->
