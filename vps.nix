@@ -65,15 +65,15 @@
     certs."jorgearaya.dev" = {
       dnsProvider = "digitalocean";
       environmentFile = config.sops.templates."acme.conf".path;
+      webroot = null;
     };
   };
 
   services.nginx = {
     enable = true;
     virtualHosts."jorgearaya.dev" = {
+      enableACME = true;
       forceSSL = true;
-      sslCertificate = "/var/lib/acme/jorgearaya.dev/fullchain.pem";
-      sslCertificateKey = "/var/lib/acme/jorgearaya.dev/key.pem";
       root = "/var/www/jorgearaya.dev";
     };
   };
