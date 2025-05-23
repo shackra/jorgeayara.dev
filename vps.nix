@@ -1,5 +1,6 @@
 {
   modulesPath,
+  config,
   ...
 }:
 
@@ -21,12 +22,22 @@
     };
   };
 
+  # sops-nix
+  sops.defaultSopsFile = ./secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+
+  sops.secrets = {
+    "digitalocean/do_auth_token" = { };
+  };
+  sops.templates."acme.conf".content = ''
+    DO_AUTH_TOKEN=${config.sops.placeholder."digitalocean/do_auth_token"}
+  '';
+
   networking = {
     hostName = "jorgearayadev";
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        80
         443
       ];
     };
@@ -51,6 +62,10 @@
   security.acme = {
     acceptTerms = true;
     defaults.email = "jorge+dns@esavara.cr";
+    certs."jorgearaya.dev" = {
+      dnsProvider = "digitalocean";
+      environmentFile = config.sops.templates."acme.conf".path;
+    };
   };
 
   services.nginx = {

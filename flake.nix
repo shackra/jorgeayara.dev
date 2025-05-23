@@ -6,6 +6,10 @@
   # Flake inputs
   inputs = {
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     deploy-rs.url = "github:serokell/deploy-rs";
     flake-schemas.url = "https://flakehub.com/f/DeterminateSystems/flake-schemas/*";
 
@@ -20,6 +24,7 @@
       nixpkgs,
       pre-commit-hooks,
       deploy-rs,
+      sops-nix,
     }:
     let
       # Helpers for producing system-specific outputs
@@ -94,6 +99,7 @@
       nixosConfigurations.site = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          sops-nix.nixosModules.sops
           ./vps.nix
         ];
       };
