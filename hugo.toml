@@ -1,6 +1,6 @@
 baseURL = 'https://jorgearaya.dev/'
 languageCode = 'en'
-title = 'Jorge Araya | Contract Developer'
+title = 'Jorge Araya | Freelance Remote Software Engineer'
 theme = 'coder'
 defaultcontentlanguage = "en"
 
@@ -14,7 +14,7 @@ style = "paraiso-dark"
   author = "Jorge Araya"
   info = " I build scalable backend systems and APIs with Go & Python"
   description = "Jorge Araya's personal website"
-  keywords = "blog,developer,personal,consulting"
+  keywords = "blog,developer,personal,freelancer,software engineer"
   avatarurl = "images/me.jpg"
 
   faviconSVG = "images/favicon.svg"
