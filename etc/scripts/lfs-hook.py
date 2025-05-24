@@ -5,7 +5,7 @@ from os import path
 import subprocess
 
 lfs_script = """
-command -v git-lfs >/dev/null 2>&1 || { echo >&2 \"\nThis repository is configured for Git LFS but 'git-lfs' was not found on your path. If you no longer wish to use Git LFS, remove this hook by deleting the 'pre-push' file in the hooks directory (set by 'core.hookspath'; usually '.git/hooks').\n\"; exit 2; }
+command -v git-lfs >/dev/null 2>&1 || { echo >&2 \"\nThis repository is configured for Git LFS but 'git-lfs' was not found on your path. If you no longer wish to use Git LFS, remove this hook by deleting the '%s' file in the hooks directory (set by 'core.hookspath'; usually '.git/hooks').\n\"; exit 2; }
 git lfs %s \"$@\"
 """
 
@@ -27,7 +27,7 @@ if path.exists(stage_location):
                 exit(0) # nothing else to do
 
     with open(stage_location, "a") as file:
-        file.write(lfs_script % args.stage)
+        file.write(lfs_script % (args.stage, args.stage))
 else:
     with open(stage_location, "w") as file:
         file.write("#!/usr/bin/env bash")
