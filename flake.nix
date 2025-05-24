@@ -65,10 +65,10 @@
                 ps: with ps; [
                   black
                   isort
-                  flake8
+                  ruff
                   python-lsp-server
                   python-lsp-black
-                  pylsp-mypy
+                  python-lsp-ruff
                   pylsp-rope
                 ]
               ))
