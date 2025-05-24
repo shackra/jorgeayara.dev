@@ -32,6 +32,8 @@ style = "paraiso-dark"
   # customCSS = ["css/custom.css"]
   # customSCSS = ["scss/custom.scss"]
   # customJS = ["js/custom.js"]
+[params.goatCounter]
+  code = "vekdddjcxj2dgzazsr"
 
 [[params.social]]
   twitter = "elzorrorebelde"
