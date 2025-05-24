@@ -59,9 +59,19 @@
               git
               git-lfs
 
-              python3
-
               (pkgs.writeScriptBin "project-git-lfs-hook-installer" (builtins.readFile ./etc/scripts/lfs-hook.py))
+
+              (pkgs.python312.withPackages (
+                ps: with ps; [
+                  black
+                  isort
+                  flake8
+                  python-lsp-server
+                  python-lsp-black
+                  pylsp-mypy
+                  pylsp-rope
+                ]
+              ))
             ];
 
             shellHook =
