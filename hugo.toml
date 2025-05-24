@@ -12,10 +12,11 @@ style = "paraiso-dark"
 
 [params]
   author = "Jorge Araya"
-  info = " I build scalable backend systems and APIs with Go & Python"
-  description = "Jorge Araya's personal website"
+  info = "I build scalable backend systems and APIs with Go & Python"
+  description = "My personal website"
   keywords = "blog,developer,personal,freelancer,software engineer"
   avatarurl = "images/me.jpg"
+  images = ["images/site cover.jpg"]
 
   faviconSVG = "images/favicon.svg"
   favicon_32 = "/img/favicon-32x32.png"
@@ -31,6 +32,9 @@ style = "paraiso-dark"
   # customCSS = ["css/custom.css"]
   # customSCSS = ["scss/custom.scss"]
   # customJS = ["js/custom.js"]
+
+[[params.social]]
+  twitter = "elzorrorebelde"
 
 [taxonomies]
   category = "categories"
@@ -77,3 +81,7 @@ style = "paraiso-dark"
   name = "Portfolio"
   weight = 3
   url = "portfolio/"
+[[menu.main]]
+  name = "Contact"
+  weight = 4
+  url = "https://cal.com/jorgean/30min"
